@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css.css">
+	<meta charset="UTF-8">
+	<title>Calculadora de aumento salarial</title>
+	<style>
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+		label {
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		input[type="text"] {
+            color: black;
+			padding: 5px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		}
+
+		button {
+			padding: 5px 10px;
+			background-color: blueviolet;
+			color: white;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		.result {
+            color: white;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Calculadora de aumento salarial</h1>
+
+	<form>
+		<label>Salário do funcionário:</label>
+		<input type="text" name="salary">
+		<button type="button" onclick="calculateSalary()">Calcular aumento</button>
+
+		<div class="result"></div>
+	</form>
+
+	<button type="button" onclick="addSalary()">Adicionar salário</button>
+
+	<script>
+		function calculateSalary() {
+			var salaryInput = document.getElementsByName("salary")[0];
+			var salary = parseFloat(salaryInput.value);
+			var increase;
+
+			if (salary <= 500) {
+				increase = 0.1;
+			} else {
+				increase = 0.08;
+			}
+
+			var newSalary = salary * (1 + increase);
+
+			var resultDiv = document.getElementsByClassName("result")[0];
+			resultDiv.innerHTML = "Novo salário: R$ " + newSalary.toFixed(2);
+		}
+
+		function addSalary() {
+			var form = document.getElementsByTagName("form")[0];
+
+			var newSalaryLabel = document.createElement("label");
+			newSalaryLabel.innerHTML = "Salário do funcionário:";
+			form.appendChild(newSalaryLabel);
+
+			var newSalaryInput = document.createElement("input");
+			newSalaryInput.type = "text";
+			newSalaryInput.name = "salary";
+			form.appendChild(newSalaryInput);
+
+			var newSalaryButton = document.createElement("button");
+			newSalaryButton.type = "button";
+			newSalaryButton.innerHTML = "Calcular aumento";
+			newSalaryButton.onclick = calculateSalary;
+			form.appendChild(newSalaryButton);
+
+			form.appendChild(document.createElement("br"));
+		}
+	</script>
+</body>
+</html>

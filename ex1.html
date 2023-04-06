@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Imprimir Números Pares</title>
+	<link rel="stylesheet" href="css.css">
+	<style>
+
+		*{
+			padding: 10px;
+			outline: none;
+		}
+
+		li{
+			border-radius: 20px;
+			width: 20px;
+			height: 20px;
+			background-color: white;
+			list-style: none;
+			color: black;
+			font-size: 18px;
+			margin: 5px;
+			padding: 10px;
+		}
+		
+	</style>
+</head>
+<body>
+	<h1>Números Pares</h1>
+	<ul id="lista-pares">
+		<script>
+			for (let i = 1; i <= 100; i++) {
+				if (i % 2 === 0) {
+					document.getElementById('lista-pares').innerHTML += `<li>${i}</li>`;
+				}
+			}
+		</script>
+	</ul>
+</body>
+</html>

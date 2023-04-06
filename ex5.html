@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css.css">
+    <title>Verificar número na faixa de 20 a 90</title>
+    <style>
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        input{
+            color: black;
+        }
+
+        button{
+            outline: none;
+            border: none;
+            border-radius: 2px;
+            height: 25px;
+            width: 100px;
+            background-color: blueviolet;
+        }
+
+    </style>
+
+  </head>
+  <body>
+    <h1>Verificar número na faixa de 20 a 90</h1>
+    <form>
+      <label for="numero">Digite um número:</label>
+      <input type="number" id="numero" name="numero" required>
+      <button type="button" onclick="verificarNumero()">Verificar</button>
+    </form>
+    <div id="mensagem"></div>
+    <script>
+        function verificarNumero() {
+
+            var numero = document.getElementById("numero").value;
+            var mensagem = document.getElementById("mensagem");
+            
+            if (numero >= 20 && numero <= 90) {
+                mensagem.innerHTML = "O número está na faixa de 20 a 90";
+            } else {
+                mensagem.innerHTML = "O número não está na faixa de 20 a 90";
+            }
+
+        }
+    </script>
+  </body>
+</html>

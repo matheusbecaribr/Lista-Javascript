@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Salário Líquido</title>
+    <link rel="stylesheet" href="css.css">
+    <style>
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        input[type="number"] {
+            color: black;
+        }
+
+        button {
+            cursor: pointer;
+            padding: 5px;
+            background-color: blueviolet;
+        }
+        
+        #resultado {
+            width: 300px;
+            margin: 20px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+    </style>
+  </head>
+  <body>
+    <form>
+      <h1 for="salario-bruto">Salário Bruto:</h1>
+      <input type="number" id="salario-bruto" name="salario-bruto" required>
+      <button type="button" onclick="calcularSalarioLiquido()">Calcular Salário Líquido</button>
+    </form>
+    <div id="resultado"></div>
+    <script>
+      function calcularSalarioLiquido() {
+        
+        const salarioBruto = parseFloat(document.getElementById("salario-bruto").value);
+        
+        let inss;
+        if (salarioBruto < 1500) {
+          inss = salarioBruto * 0.08;
+        } else {
+          inss = salarioBruto * 0.11;
+        }
+        
+        let ir = 0;
+        if (salarioBruto >= 1500) {
+          ir = salarioBruto * 0.05;
+        }
+        
+        const salarioLiquido = salarioBruto - inss - ir;
+        
+        const resultadoElement = document.getElementById("resultado");
+        resultadoElement.innerHTML = `
+          <p>Salário Bruto: R$ ${salarioBruto.toFixed(2)}</p>
+          <p>INSS: R$ ${inss.toFixed(2)}</p>
+          <p>IR: R$ ${ir.toFixed(2)}</p>
+          <p>Salário Líquido: R$ ${salarioLiquido.toFixed(2)}</p>
+        `;
+
+      }
+    </script>
+  </body>
+</html>

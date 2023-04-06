@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background-image: url(images/ceu-estrelado.jpg);
+    background-size: cover;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1{
+    padding: 50px;
+    font-size: 50pt;
+    color: white;
+}
+
+a{
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    width: 5vw;
+    height: 10px;
+    border: 1px solid white;
+    background-color: none;
+    text-decoration: none;
+    color: white;
+}
+
+a:hover{
+    background-color: white;
+    color: black;
+    transition: 0.5s linear;
+}
+

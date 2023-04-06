@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>Programa</title>
+    <style>
+        
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input{
+            color: black;
+        }
+
+        button{
+          border: none;
+          border-radius: 2px;
+          background-color: blueviolet;
+          padding: 5px;
+        }
+
+    </style>
+  </head>
+  <body>
+    <form>
+      <label>Digite um número inteiro:</label>
+      <input type="number" id="numero1" required>
+      
+      <label>Digite outro número inteiro:</label>
+      <input type="number" id="numero2" required>
+      
+      <button type="button" onclick="exibirValores()">Exibir Valores</button>
+    </form>
+    
+    <p id="valores"></p>
+    
+    <form>
+      <label>Digite o sexo (M/F):</label>
+      <input type="text" id="sexo" required>
+      
+      <button type="button" onclick="validarSexo()">Validar Sexo</button>
+    </form>
+    
+    <p id="validacao"></p>
+    
+    <script>
+      function exibirValores() {
+        var numero1 = document.getElementById("numero1").value;
+        var numero2 = document.getElementById("numero2").value;
+        
+        document.getElementById("valores").innerHTML = "Os valores digitados foram " + numero1 + " e " + numero2 + ".";
+      }
+      
+      function validarSexo() {
+        var sexo = document.getElementById("sexo").value;
+        
+        if (sexo == "M" || sexo == "F") {
+          document.getElementById("validacao").innerHTML = "O sexo é válido.";
+        } else {
+          document.getElementById("validacao").innerHTML = "O sexo não é válido.";
+        }
+      }
+    </script>
+  </body>
+</html>

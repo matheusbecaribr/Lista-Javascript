@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Verificar se um número é divisível por 5</title>
+    <link rel="stylesheet" href="css.css">
+	<style>
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+		input[type="number"] {
+			color: black;
+		}
+
+		button {
+            padding: 5px;
+			background-color: blueviolet;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+
+		p{
+			font-size: 18px;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Verificar se um número é divisível por 5</h1>
+
+	<form>
+		<label for="numero">Digite um número inteiro:</label>
+		<input type="number" id="numero" name="numero">
+
+		<button type="button" onclick="verificarDivisivel()">Verificar</button>
+	</form>
+
+	<p id="mensagem"></p>
+
+	<script>
+		function verificarDivisivel() {
+			// Obter o valor do campo de entrada
+			var numero = document.getElementById("numero").value;
+
+			// Verificar se o número é divisível por 5
+			if (numero % 5 === 0) {
+				// Se for divisível, exibir uma mensagem de sucesso
+				document.getElementById("mensagem").innerHTML = numero + " é divisível por 5.";
+			} else {
+				// Se não for divisível, exibir uma mensagem de erro
+				document.getElementById("mensagem").innerHTML = numero + " não é divisível por 5.";
+			}
+		}
+	</script>
+</body>
+</html>

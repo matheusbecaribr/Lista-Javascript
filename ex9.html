@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Aumento Salarial</title>
+    <link rel="stylesheet" href="css.css">
+    <style>
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        input{
+            color: black;
+        }
+
+        button{
+            margin: 10px;
+            border: none;
+            padding: 10px;
+            background-color: blueviolet;
+            cursor: pointer;
+        }
+
+        select{
+            color: black;
+        }
+
+        option{
+            color:black;
+        }
+
+    </style>
+  </head>
+  <body>
+    <h1>Calculadora de Aumento Salarial</h1>
+    <form>
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome"><br>
+      <label for="salario">Salário:</label>
+      <input type="number" id="salario" name="salario"><br>
+      <label for="classe">Classe:</label>
+      <select id="classe" name="classe">
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+      </select><br>
+      <button type="button" onclick="calcularAumento()">Calcular</button>
+    </form>
+    <p id="resultado"></p>
+    <script>
+        function calcularAumento() {
+
+            var nome = document.getElementById("nome").value;
+            var salario = parseFloat(document.getElementById("salario").value);
+            var classe = document.getElementById("classe").value;
+
+            switch (classe) {
+                case "A":
+                salario *= 1.1;
+                break;
+                case "B":
+                salario *= 1.15;
+                break;
+                case "C":
+                salario *= 1.2;
+                break;
+                default:
+                alert("Selecione uma classe válida (A, B ou C)");
+                return;
+            }
+
+            document.getElementById("resultado").innerHTML = nome + ", seu novo salário é R$ " + salario.toFixed(2);
+
+        }
+
+    </script>
+  </body>
+</html>
